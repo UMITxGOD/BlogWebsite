@@ -1,0 +1,104 @@
+<head>
+  <style>
+    * {
+      color: green;
+    }
+    .form-control {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 900;
+      font-size: 1.4rem;
+      margin: 0.3rem;
+    }
+    #title,
+    #auther {
+      color: black;
+      font-size: larger;
+      margin: 0.5rem;
+      width: auto;
+      height: 2rem;
+      border: 3px solid green;
+      box-shadow: -0.3px 0.3rem 0.3rem hsla(150, 50%, 60%, 0.9);
+    }
+    #description,
+    #markdown {
+      color: black;
+      font-size: larger;
+      margin: 0.5rem;
+      width: auto;
+      height: 8.5rem;
+      border: 3px solid green;
+      box-shadow: -0.3px 0.3rem 0.3rem hsla(150, 50%, 60%, 0.9);
+    }
+    .btn-center {
+      display: flex;
+      justify-content: center;
+    }
+    .btn-submit,
+    .btn-cancel {
+      width: 5rem;
+      height: 3rem;
+      font-size: 2rem;
+      margin-top: 0.8rem;
+      margin-left: 1.2rem;
+      border: 3px solid green;
+      box-shadow: -0.3px 0.3rem 0.3rem hsla(150, 50%, 60%, 0.9);
+    }
+    .btn-submit {
+      color: purple;
+      border-top-left-radius: 20%;
+      border-bottom-right-radius: 20%;
+    }
+    .btn-cancel:hover {
+      border: 2px solid red;
+    }
+    .btn-submit:hover {
+      border: 2px solid purple;
+    }
+    .btn-cancel {
+      border-top-right-radius: 20%;
+      border-bottom-left-radius: 20%;
+      color: red;
+      opacity: 0.7;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-control">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      value="<%= article.title%>"
+      required
+    />
+    <label for="auther">Auther</label>
+    <input
+      type="text"
+      name="auther"
+      id="auther"
+      value="<%= article.auther%>"
+      required
+    />
+    <label for="description">Description</label>
+    <textarea name="description" id="description" cols="50" rows="10">
+<%=article.description%></textarea
+    >
+    <label for="markdown">Markdown</label>
+    <textarea name="markdown" id="markdown" cols="50" rows="10">
+<%=article.markdown%></textarea
+    >
+  </div>
+  <div class="btn-center">
+    <a href="/">
+      <button type="button" class="btn-cancel">cancel</button>
+    </a>
+    <button type="submit" class="btn-submit">save</button>
+  </div>
+</body>

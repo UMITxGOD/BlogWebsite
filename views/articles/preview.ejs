@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <style>
+      .header {
+        margin-top: 1rem;
+        display: flex;
+        color: green;
+        opacity: 0.9;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-submit,
+      .btn-cancel {
+        width: 5rem;
+        font-weight: bold;
+        height: 3rem;
+        margin-top: 0.8rem;
+        margin-left: 1.2rem;
+        border: 3px solid green;
+        background-color: white;
+        box-shadow: -0.3px 0.3rem 0.3rem hsla(150, 50%, 60%, 0.9);
+      }
+      .btn-submit {
+        color: purple;
+        border-top-left-radius: 20%;
+        border-bottom-right-radius: 20%;
+      }
+      .btn-cancel:hover {
+        border: 2px solid red;
+        color: green;
+      }
+      .btn-submit:hover {
+        border: 2px solid purple;
+      }
+      .btn-cancel {
+        font-size: smaller;
+        border-top-right-radius: 20%;
+        border-bottom-left-radius: 20%;
+        color: red;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="header"><%=article.title%></h1>
+    <div class="date"><%=article.createdAt.toLocaleDateString()%></div>
+    <a href="/">
+      <button type="button" class="btn-cancel">All Articles</button>
+    </a>
+    <a href="/article/edit/<%=article.id%>">
+      <button type="button" class="btn-submit">Edit</button>
+    </a>
+    <div class="markdown"><%- article.sanitizedHTML%></div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="header">Blog Article</h1>
+    <a href="/article/new">
+      <Button class="publish">Publish Article</Button>
+    </a>
+    <main>
+      <% article.forEach(a => { %>
+      <div class="container">
+        <div class="article">
+          <div class="title"><%=a.title%></div>
+        </div>
+        <div class="details">
+          <div class="description"><%=a.description%></div>
+          <div class="uploadTime"><%=a.createdAt.toLocaleDateString()%></div>
+          <div class="Auther">- By <%=a.auther%></div>
+        </div>
+        <div class="btns">
+          <a href="article/<%=a.slug%>">
+            <button class="btn-more">More</button>
+          </a>
+          <a href="/article/edit/<%=a.id%>">
+            <button type="submit" class="btn-more">Edit</button>
+          </a>
+          <form action="article/<%=a.id%>?_method=DELETE" method="post">
+            <button type="submit" class="btn-more">Delete</button>
+          </form>
+        </div>
+      </div>
+      <% })%>
+    </main>
+  </body>
+</html>
